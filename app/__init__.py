@@ -3,8 +3,10 @@ from .db import db
 from .ext import ma, migrate
 from flasgger import Swagger
 from flask_cors import CORS
+from app.wheat_production.controller.wheat_production import wheat_production
+from pymongo import MongoClient
 
-prefix=f"/api/v1"
+prefix="/api/v1"
 
 def create_app(settings_module):
     app = Flask(__name__)
@@ -42,6 +44,5 @@ def create_app(settings_module):
     migrate.init_app(app)
     
     #* BLUEPRINTS
-    # app.register_blueprint(nombre, url_prefix=f"{prefix}/person")
+    app.register_blueprint(wheat_production, url_prefix=f"{prefix}/wheat_production")
     return app
-    

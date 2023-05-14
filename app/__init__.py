@@ -4,7 +4,7 @@ from .ext import ma, migrate
 from flasgger import Swagger
 from flask_cors import CORS
 from app.wheat_production.controller.wheat_production import wheat_production
-from pymongo import MongoClient
+from app.property_tables.controller.property_tables_controller import property_tables
 
 prefix="/api/v1"
 
@@ -45,4 +45,5 @@ def create_app(settings_module):
     
     #* BLUEPRINTS
     app.register_blueprint(wheat_production, url_prefix=f"{prefix}/wheat_production")
+    app.register_blueprint(property_tables, url_prefix=f"{prefix}/property_tables")
     return app

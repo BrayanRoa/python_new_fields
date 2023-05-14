@@ -10,7 +10,7 @@ def get_all():
     per_page = request.args.get("per_page", 15, type=int)
     return wheat_service.get_all(page, per_page)
 
-@wheat_production.route("/new_propertie", methods=['POST'])
-def new_properties():
-    data = request.get_json()
-    return wheat_service.new_properties(data)
+# @wheat_production.route("/new_propertie/<table>", methods=['POST'])
+# def new_properties(table):
+#     data = request.get_json()
+#     return wheat_service.new_properties(data, table)

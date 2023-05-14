@@ -1,10 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
 from pymongo import MongoClient
+from config.development import MONGO_CONNECTION
 
 db = SQLAlchemy()
 
-client = MongoClient('mongodb://localhost:27017/')
-mongo_db = client.prisma_test
+client = MongoClient(MONGO_CONNECTION)
+mongo_db = client['prisma_test']
+collections = mongo_db.list_collection_names()
 
 # print(mongo_db["wheat_production"])
 # tabla_collection = mongo_db.pruebaaaaaa
@@ -32,6 +34,5 @@ mongo_db = client.prisma_test
 
 # tabla_collection.insert_one(tabla_schema)
 # mongo_db.usuarios.insert_one({'nombre': 'Juan', 'edad': 30})
-colecciones = mongo_db.list_collection_names()
 
 # print(colecciones)

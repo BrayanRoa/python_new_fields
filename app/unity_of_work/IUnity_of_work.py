@@ -1,4 +1,5 @@
 from app.wheat_production.repository.wheat_production_repository import IWheatProductionRepository
-
+from app.white_beans_production.repository.white_beans_production_repository import IWhiteBeansProductionRepository
 class IUnityOfWork():
     wheat_production = IWheatProductionRepository
+    white_beans_production = IWhiteBeansProductionRepository

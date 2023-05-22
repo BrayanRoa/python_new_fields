@@ -15,3 +15,15 @@ class WheatProductionEntity(db.Model):
     
     def start_mappers():
         mapper(WheatProductionModel, WheatProductionEntity)
+        
+    def __str__(self):
+        return {
+            "id":self.id,
+            "variety":self.variety,
+            "ontario_acres":self.ontario_acres,
+            "intake_ont":self.intake_ont,
+            "pending":self.pending,
+            "intake":self.intake
+        }
+        
+        

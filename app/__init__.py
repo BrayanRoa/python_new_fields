@@ -5,7 +5,7 @@ from flasgger import Swagger
 from flask_cors import CORS
 from app.wheat_production.controller.wheat_production import wheat_production
 from app.property_tables.controller.property_tables_controller import property_tables
-
+from app.white_beans_production.controller.white_beans_production_controller import white_beans_production
 prefix="/api/v1"
 
 def create_app(settings_module):
@@ -46,4 +46,5 @@ def create_app(settings_module):
     #* BLUEPRINTS
     app.register_blueprint(wheat_production, url_prefix=f"{prefix}/wheat_production")
     app.register_blueprint(property_tables, url_prefix=f"{prefix}/property_tables")
+    app.register_blueprint(white_beans_production, url_prefix=f"{prefix}/white_beans_production")
     return app

@@ -3,9 +3,12 @@ from .db import db
 from .ext import ma, migrate
 from flasgger import Swagger
 from flask_cors import CORS
-from app.wheat_production.controller.wheat_production import wheat_production
+from app.productions.controller.production import production_bp
 from app.property_tables.controller.property_tables_controller import property_tables
+from app.new_properties.controller.new_properties_controller import new_properties_bp
 from app.white_beans_production.controller.white_beans_production_controller import white_beans_production
+from app.type_entity.controller.type_entity_controler import type_entity_bp
+from app.value_fields.controller.value_fields_controller import value_fields_bp
 prefix="/api/v1"
 
 def create_app(settings_module):
@@ -44,7 +47,11 @@ def create_app(settings_module):
     migrate.init_app(app)
     
     #* BLUEPRINTS
-    app.register_blueprint(wheat_production, url_prefix=f"{prefix}/wheat_production")
+    app.register_blueprint(type_entity_bp, url_prefix=f"{prefix}/type_entity")
+    app.register_blueprint(production_bp, url_prefix=f"{prefix}/productions")
     app.register_blueprint(property_tables, url_prefix=f"{prefix}/property_tables")
+    app.register_blueprint(new_properties_bp, url_prefix=f"{prefix}/new_properties")
+    app.register_blueprint(value_fields_bp, url_prefix=f"{prefix}/value_fields")
+    
     app.register_blueprint(white_beans_production, url_prefix=f"{prefix}/white_beans_production")
     return app

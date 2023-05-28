@@ -1,5 +1,0 @@
-
-
-class IWheatProductionRepository():
-    
-    pass

@@ -1,0 +1,4 @@
+
+class INewPropertiesRepository():
+    
+    pass

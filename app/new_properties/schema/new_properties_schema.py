@@ -11,6 +11,7 @@ class NewPropertiesSchema(ma.Schema):
     is_required = fields.Boolean()   
     condition = fields.String()
     description = fields.String()
+    type_entity_id = fields.Integer()
     
 new_properties_schema=NewPropertiesSchema()
 list_new_properties_schema=NewPropertiesSchema(many=True)

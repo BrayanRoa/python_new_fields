@@ -19,6 +19,6 @@ class PropertyTablesService():
     def concat_data(self, data, properties):
         for obj in data:
             for formula in properties:
-                resultado = eval(formula["formula"],{}, obj)
+                resultado = eval(formula["form"],{}, obj)
                 obj[formula["name"]] = resultado
         return data

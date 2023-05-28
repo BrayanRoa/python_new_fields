@@ -15,18 +15,18 @@ class Repository(AbstractRepository):
         
     def add(self, model):        
         try:
-            setattr(model,"created_at", datetime.now())
-            setattr(model,"updated_at",datetime.now())
+            # setattr(model,"created_at", datetime.now())
+            # setattr(model,"updated_at",datetime.now())
             self.session.add(model)
         except Exception as e:
             logging.error(str(e))
             self.session.add(model)
             self.session.commit()
-            self.addAudit(model.id, self.model_cls.__tablename__, model ,"ADD")
+            # self.addAudit(model.id, self.model_cls.__tablename__, model ,"ADD")
             return model
         
         self.session.commit()
-        self.addAudit(model.id, self.model_cls.__tablename__, model ,"ADD")
+        # self.addAudit(model.id, self.model_cls.__tablename__, model ,"ADD")
         return model
 
     def list(self, page, per_page,param=or_(),order=None):

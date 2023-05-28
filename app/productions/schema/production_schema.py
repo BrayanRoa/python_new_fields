@@ -21,6 +21,7 @@ class ProductionSchema(ma.Schema):
     source=fields.String()
     comment=fields.String()
     new_breeder_seed_in=fields.String()
+    type_entity_id = fields.Integer()
     
     value_field = fields.Nested(ValueFieldsSchema, many=True)
         
